@@ -1,0 +1,14 @@
+<config>
+    <packages>
+        <package id="git" name="Git" />
+        <package id="vscode" name="Visual Studio Code" />
+        <package id="postman" name="Postman" />
+        <package id="notepadplusplus" name="Notepad++" />
+        <package id="docker-desktop" name="Docker Desktop" />
+    </packages>
+    <repositories>
+        <repository id="fatihtatoglu/surveys" name="Surveys" url="https://github.com/fatihtatoglu/surveys.git" />
+        <repository id="fatihtatoglu/typewriter" name="Typewriter" url="https://github.com/fatihtatoglu/typewriter.git" />
+        <repository id="fatihtatoglu/bluefish" name="Bluefish" url="https://github.com/fatihtatoglu/bluefish.git" />
+    </repositories>
+</config>
