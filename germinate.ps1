@@ -8,13 +8,13 @@ function Import-Config {
     )
 
     #TODO: Check config exist.
-    $isConfigExist = Test-Path -Path $ConfigPath
+    $isConfigExist = Test-Path -Path $ConfigFilePath
     if ($false -eq $isConfigExist) {
         Write-Host "Config file is missing."
         return
     }
 
-    [xml]$xml = Get-Content -Path $ConfigPath
+    [xml]$xml = Get-Content -Path $ConfigFilePath
 
     Write-Host "Installing packages..."
     foreach ($package in $xml.packages.package) {
