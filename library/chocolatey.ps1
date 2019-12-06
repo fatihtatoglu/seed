@@ -4,7 +4,7 @@ function Get-ChocolateyPath {
 
 function Test-Chocolatey {
     $chocoPath = Get-ChocolateyPath
-    return $null -eq $chocoPath
+    return $null -ne $chocoPath
 }
 
 function Install-Chocolatey {
@@ -25,4 +25,40 @@ function Update-Chocolatey {
 
     $chocoPath = Get-ChocolateyPath
     Start-Process -FilePath "$chocoPath\choco.exe" -ArgumentList "upgrade chocolatey -y" -Wait -NoNewWindow
+}
+
+function Install-ChocolateyModule {
+    param (
+        [string[]]$Modules
+    )
+    
+    $chocoPath = Get-ChocolateyPath
+    $modulesLine = [string]$Modules
+    Start-Process -FilePath "$chocoPath\choco.exe" -ArgumentList "install $modulesLine -y" -Wait -NoNewWindow | Out-Null
+
+    Write-Host "Following modules is installed. Modules: $modulesLine"
+}
+
+function Uninstall-ChocolateyModule {
+    param (
+        [string[]]$Modules
+    )
+    
+    $chocoPath = Get-ChocolateyPath
+    $modulesLine = [string]$Modules
+    Start-Process -FilePath "$chocoPath\choco.exe" -ArgumentList "uninstall $modulesLine -y" -Wait -NoNewWindow | Out-Null
+
+    Write-Host "Following modules is installed. Modules: $modulesLine"
+}
+
+function Update-ChocolateyModule {
+    param (
+        [string[]]$Modules
+    )
+    
+    $chocoPath = Get-ChocolateyPath
+    $modulesLine = [string]$Modules
+    Start-Process -FilePath "$chocoPath\choco.exe" -ArgumentList "upgrade $modulesLine -y" -Wait -NoNewWindow | Out-Null
+
+    Write-Host "Following modules is installed. Modules: $modulesLine"
 }

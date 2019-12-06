@@ -17,3 +17,12 @@ function Set-FolderOption {
 function Get-OsDriveLetter {
     return (Get-WmiObject Win32_OperatingSystem).SystemDrive
 }
+
+function Remove-Folder {
+    param(
+        [Parameter(Mandatory = $true)][string]$Path
+    )
+            
+    Get-ChildItem $Path -Recurse | Remove-Item -Recurse -Confirm:$false -Force
+    Remove-Item -Force -Recurse -Path "$Path\*" -Confirm:$false
+}
