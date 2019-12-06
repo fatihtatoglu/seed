@@ -21,7 +21,18 @@ function Import-Config {
         Install-ChocolateyModule -Modules $id
     }
 
-    [string]$workspacePath = $(Read-Host "Workspace Path")
+    $workspacePath = $null;
+    do {
+        [string]$workspacePath = $(Read-Host "Workspace Path")
+        $workspacePath = $workspacePath.Trim();
+
+        $isExist = (Test-Path -Path $workspacePath)
+        if ($false -eq $isExist) {
+            $workspacePath = $null;
+        }
+
+    } while (([string]::IsNullOrEmpty($workspacePath)))
+
     Write-Host "Cloning repositories..."
     foreach ($repository in $xml.config.repositories.repository) {
         $url = $repository.url;
@@ -34,9 +45,12 @@ function Import-Config {
 
 Import-Config
 
+Write-Host
+Write-Host
+Write-Host "########################################"
 Write-Host "Germination is completed."
 Write-Host "The growing stage is started. With developing code you can grow yourself and your projects."
 Write-Host "Have a nice journey in your programming life cycle."
-Write-Host "Fatih Tatoğlu / fatih@tatoglu.net"
+Write-Host "Fatih Tatoglu / fatih@tatoglu.net"
 Write-Host "########################################"
 Write-Host "For new features and any issues use: https://github.com/fatihtatoglu/seed/issues"
