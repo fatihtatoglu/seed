@@ -1,5 +1,7 @@
 # Seed
 
+![alt text][logo]
+
 The development environment preparetion project.
 
 ## Installation
@@ -15,3 +17,5 @@ Script will guide for needed inputs, while executing.
 ## Reference
 
 - [Project Icon](https://www.flaticon.com/free-icon/seed_1497611)
+
+[logo]: icona/seed_64.png "seed"
