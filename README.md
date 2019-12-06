@@ -23,7 +23,6 @@ Script will guide for needed inputs, while executing.
 - [X] Installing on Windows.
 - [ ] Installing on MacOS.
 - [ ] Installing on Linux.
-
   - [ ] CentOS 7.X
   - [ ] CentOS 8.X
   - [ ] Ubuntu 12.04 TLS (aka Precise Pangolin)
