@@ -31,4 +31,4 @@ Script will guide for needed inputs, while executing.
   - [ ] Ubuntu 16.04 LTS (aka Xenial Xerus)
   - [ ] Ubuntu 18.04 LTS (aka Bionic Beaver)
 
-[logo]: icona/seed_64.png "seed"
+[logo]: icons/seed_64.png "seed"
