@@ -7,7 +7,6 @@ function Import-Config {
         [string]$ConfigFilePath = $(Read-Host "Config File Path")
     )
 
-    #TODO: Check config exist.
     $isConfigExist = Test-Path -Path $ConfigFilePath
     if ($false -eq $isConfigExist) {
         Write-Host "Config file is missing."
@@ -17,14 +16,14 @@ function Import-Config {
     [xml]$xml = Get-Content -Path $ConfigFilePath
 
     Write-Host "Installing packages..."
-    foreach ($package in $xml.packages.package) {
+    foreach ($package in $xml.config.packages.package) {
         $id = $package.id;
         Install-ChocolateyModule -Modules $id
     }
 
     [string]$workspacePath = $(Read-Host "Workspace Path")
     Write-Host "Cloning repositories..."
-    foreach ($repository in $xml.repositories.repository) {
+    foreach ($repository in $xml.config.repositories.repository) {
         $url = $repository.url;
         Import-GitRepository -RepositoryUrl $url -LocalRepositoryPath $workspacePath
     }
